@@ -2,17 +2,19 @@ import React from 'react'
 import QuestionInput from '../../../components/QuestionComponents/QuestionInput'
 import QuestionRadio from '../../../components/QuestionComponents/QuestionRadio'
 import styles from '@/app/question.module.scss'  //@根目录src的意思
-type PropsType = {id: string}
 
-export default async function question(props: PropsType){
+
+export default async function question({ params }: { params: { id: string } }){
+
 
     return (
       <>
       
       <main>
         
-        <form>
-          <input type="hidden" name="questionId" value={props.id} />
+        <form method='post' action='../api/answer'>
+          <input type="hidden" name="questionId" value={params.id} />
+         
           <div className={styles.componentWrapper}>
             <QuestionInput fe_id='c1' props={{title:'姓名',placeholder :'请输入'}} />
           </div>
