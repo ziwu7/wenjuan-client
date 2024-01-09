@@ -1,17 +1,15 @@
 import React from 'react'
 import QuestionInput from '../../../components/QuestionComponents/QuestionInput'
 import QuestionRadio from '../../../components/QuestionComponents/QuestionRadio'
-import styles from '@/app/question.module.scss'  //@根目录src的意思
-
+import styles from '@/styles/question.module.scss'  //@根目录src的意思
+import PageWrapper from '@/components/PageWrapper'
 
 export default async function question({ params }: { params: { id: string } }){
 
 
     return (
       <>
-      
-      <main>
-        
+      <PageWrapper title='question' >
         <form method='post' action='../api/answer'>
           <input type="hidden" name="questionId" value={params.id} />
          
@@ -29,14 +27,13 @@ export default async function question({ params }: { params: { id: string } }){
               isVertical:true
               }} />
           </div>
-         
-
+  
           <div className={styles.submitBtnContainer}>
             {/* <input type="submit" value="提交" /> */}
             <button type="submit">提交</button>
           </div>
         </form>
-      </main>
+      </PageWrapper>       
       </>
     )
   
